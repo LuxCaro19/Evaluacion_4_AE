@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b25c78208de4e1a8447a380b86ba580" Name="Diagram1">
+        <EntityTypeShape EntityType="eva_4Model.AvanceOrdenTrabajo" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.Cliente" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.Equipo" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.modulo" Width="1.5" PointX="1.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.operacion_rol" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.operaciones" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.OrdenTrabajo" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.Rol" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eva_4Model.Usuario" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="eva_4Model.FK_AvanceOrdenTrabajo_OrdenTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_Equipo_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_OrdenTrabajo_Equipo" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_operaciones_modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_operacion_rol_operaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_operacion_rol_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_OrdenTrabajo_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="eva_4Model.FK_Usuario_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
