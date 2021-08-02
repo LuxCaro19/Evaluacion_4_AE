@@ -112,6 +112,30 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Styles\assets\favicon.ico" />
+    <Content Include="Content\Styles\assets\img\about\1.jpg" />
+    <Content Include="Content\Styles\assets\img\about\2.jpg" />
+    <Content Include="Content\Styles\assets\img\about\3.jpg" />
+    <Content Include="Content\Styles\assets\img\about\4.jpg" />
+    <Content Include="Content\Styles\assets\img\close-icon.svg" />
+    <Content Include="Content\Styles\assets\img\header-bg.jpg" />
+    <Content Include="Content\Styles\assets\img\logos\facebook.svg" />
+    <Content Include="Content\Styles\assets\img\logos\google.svg" />
+    <Content Include="Content\Styles\assets\img\logos\ibm.svg" />
+    <Content Include="Content\Styles\assets\img\logos\microsoft.svg" />
+    <Content Include="Content\Styles\assets\img\map-image.png" />
+    <Content Include="Content\Styles\assets\img\navbar-logo.svg" />
+    <Content Include="Content\Styles\assets\img\portfolio\1.jpg" />
+    <Content Include="Content\Styles\assets\img\portfolio\2.jpg" />
+    <Content Include="Content\Styles\assets\img\portfolio\3.jpg" />
+    <Content Include="Content\Styles\assets\img\portfolio\4.jpg" />
+    <Content Include="Content\Styles\assets\img\portfolio\5.jpg" />
+    <Content Include="Content\Styles\assets\img\portfolio\6.jpg" />
+    <Content Include="Content\Styles\assets\img\team\1.jpg" />
+    <Content Include="Content\Styles\assets\img\team\2.jpg" />
+    <Content Include="Content\Styles\assets\img\team\3.jpg" />
+    <Content Include="Content\Styles\css\styles.css" />
+    <Content Include="Content\Styles\js\scripts.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -133,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +237,10 @@
     <Content Include="Scripts\bootstrap.esm.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Shared\_Interna.cshtml" />
+    <Content Include="Views\Shared\_Externa.cshtml" />
+    <Content Include="Views\Home\Interna.cshtml" />
+    <Content Include="Views\Home\Externa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -221,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
