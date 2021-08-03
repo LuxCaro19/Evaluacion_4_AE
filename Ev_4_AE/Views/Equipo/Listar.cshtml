@@ -1,0 +1,286 @@
+﻿@model IEnumerable<Ev_4_AE.Models.Equipo>
+@{
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+
+}
+
+<div class="card-header">
+    <h4 class="text-center">Trabajadores</h4>
+</div>
+<div class="card-body">
+
+    <br />
+    <br />
+    <button class="btn btn-primary btn-sm" onclick="AgregarForms()">Nueva</button>
+    <br />
+    <br />
+</div>
+
+<div id="listEquipos">
+
+    <div class="row">
+
+        @foreach(var item in Model){
+        
+        <div class="col-md-3">
+
+            <img class="img-thumbnail" src="@item.rutaImagen" />
+            <div class="m-2">
+                <button class="btn btn-danger btn-sm" onclick="eliminarModal(@item.id)">Eliminar</button>
+                <button class="btn btn-primary btn-sm" onclick="detalle(@item.id)">Detalle</button>
+                <button class="btn btn-warning btn-sm" onclick="EditarForms(@item.id)">Editar</button>
+                <button class="btn btn-secondary btn-sm" onclick="subirImagen(@item.id)">Imagen</button>
+            </div>
+
+        </div>
+        
+        }
+
+    </div>
+
+
+</div>
+
+
+<div class="modal fade" id="MyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+</div>
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+
+<script type="text/javascript">
+
+    function AgregarForms() {
+
+        $.get('@Url.Action("AgregarForms","Equipo")/', function (data) {
+
+            $('#MyModal').html(data);
+            $('#MyModal').modal("show");
+
+
+        });
+
+    }
+
+    function EditarForms(id) {
+
+        $.get('@Url.Action("EditarForms","Equipo")/'+id, function (data) {
+
+            $('#MyModal').html(data);
+            $('#MyModal').modal("show");
+
+
+        });
+
+    }
+
+    function GuardarEquipo() {
+
+        var idequipo = $('#id').val();
+        var descripcion = $('#descripcion').val();
+        var problema = $('#problema').val();
+        var fechaRecepcion = '02-04-2021';
+        var clienteId = $('#clienteId').val();
+        var idequipo = $('#id').val();
+        var rutaImagen = $('#rutaImagen').val();
+
+        //validaciones con js
+
+        $('#descripcion').css('border-color', '');
+        $('#problema').css('border-color', '');
+        $('#clienteId').css('border-color', '');
+
+        var isvalid = true;
+        if (descripcion.trim()=="") {
+
+            $('#descripcion').css('border-color', 'Red');
+            isvalid = false;
+
+        }
+        if (problema.trim() == "") {
+
+            $('#problema').css('border-color', 'Red');
+            isvalid = false;
+
+        }
+        if (clienteId.trim() == "") {
+
+            $('#clienteId').css('border-color', 'Red');
+            isvalid = false;
+
+        }
+
+        if (isvalid) {
+
+            var equipo = {
+                "id": idequipo,
+                "descripcion": descripcion,
+                "problema": problema,
+                "clienteId": clienteId,
+                "fechaRecepcion": fechaRecepcion,
+                "rutaImagen": rutaImagen
+            };
+
+            $.post('@Url.Action("GuardarEquipo","Equipo")/', equipo, function (data) {
+
+            if (data > 0) {
+
+                location = location.href;
+            } else {
+
+                alert("Error");
+
+            }
+
+            });
+
+        }
+
+
+
+
+
+
+    }
+
+
+    function EditarEquipo() {
+
+
+        var idequipo = $('#id').val();
+        var descripcion = $('#descripcion').val();
+        var problema = $('#problema').val();
+        var fechaRecepcion = '02-04-2021';
+        var clienteId = $('#clienteId').val();
+        var idequipo = $('#id').val();
+        var rutaImagen = $('#rutaImagen').val();
+
+        //validaciones con js
+
+        $('#descripcion').css('border-color', '');
+        $('#problema').css('border-color', '');
+        $('#clienteId').css('border-color', '');
+
+        var isvalid = true;
+        if (descripcion.trim()=="") {
+
+            $('#descripcion').css('border-color', 'Red');
+            isvalid = false;
+
+        }
+        if (problema.trim() == "") {
+
+            $('#problema').css('border-color', 'Red');
+            isvalid = false;
+
+        }
+        if (clienteId.trim() == "") {
+
+            $('#clienteId').css('border-color', 'Red');
+            isvalid = false;
+
+        }
+
+        if (isvalid) {
+
+            var equipo = {
+                "id": idequipo,
+                "descripcion": descripcion,
+                "problema": problema,
+                "clienteId": clienteId,
+                "fechaRecepcion": fechaRecepcion,
+                "rutaImagen": rutaImagen
+            };
+
+            $.post('@Url.Action("EditarEquipo","Equipo")/', equipo, function (data) {
+
+            if (data > 0) {
+
+                location = location.href;
+            } else {
+
+                alert("Error");
+
+            }
+
+            });
+
+        }
+
+
+
+    }
+
+    function subirImagen(id) {
+
+        $.get('@Url.Action("uploadArchivo","Equipo")/' + id, function (data) {
+
+            $('#MyModal').html(data);
+            $('#MyModal').modal("show");
+
+        });
+
+    }
+
+
+    function detalle(id) {
+        $.get('@Url.Action("Detalle","Equipo")/' + id, function (data) {
+
+            $('#MyModal').html(data);
+            $('#MyModal').modal("show");
+
+        });
+    }
+
+    function eliminarModal(id) {
+        $.get('@Url.Action("Eliminar","Equipo")/' + id, function (data) {
+
+            $('#MyModal').html(data);
+            $('#MyModal').modal("show");
+
+        });
+    }
+
+
+    function eliminarAction(id) {
+        $.post('@Url.Action("DeleteEquipo","Equipo")/' + id, function (data) {
+
+            if (data != null) {
+                location = location.href;
+            } else {
+
+                alert("error" + data);
+            }
+
+        }, 'json');
+    }
+
+    function uploadArchivo() {
+
+        var archivoTemp = document.getElementById('idArchivo');
+        var archivo = archivoTemp.files[0];
+        var dataF = new FormData();
+        dataF.append('archivo', archivo);
+
+        $.ajax({
+            url: '@Url.Action("subirArchivo","Equipo")',
+            type: 'POST',
+            data: dataF,
+            contentType: false,
+            processData: false,
+            success: function (data) { location = location.href },
+            error: function (data) { alert("Error");}
+
+
+        });
+
+
+    }
+
+
+
+</script>
+

@@ -137,6 +137,14 @@
     <Content Include="Content\Styles\css\styles.css" />
     <Content Include="Content\Styles\js\scripts.js" />
     <Content Include="Global.asax" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3 - copia.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
+    <Content Include="images\5.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\defecto.jpg" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model.Context.cs</LastGenOutput>
@@ -153,10 +161,14 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +253,11 @@
     <Content Include="Views\Shared\_Externa.cshtml" />
     <Content Include="Views\Home\Interna.cshtml" />
     <Content Include="Views\Home\Externa.cshtml" />
+    <Content Include="Views\Equipo\Listar.cshtml" />
+    <Content Include="Views\Equipo\_Detalles.cshtml" />
+    <Content Include="Views\Equipo\_Eliminar.cshtml" />
+    <Content Include="Views\Equipo\_formularios.cshtml" />
+    <Content Include="Views\Equipo\_uploadArchivo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

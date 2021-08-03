@@ -1,0 +1,76 @@
+﻿@model Ev_4_AE.Models.Equipo
+
+<div class="modal-dialog modal-xl">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+
+                <div class="col">
+
+                    @Html.HiddenFor(model => model.id)
+                    @Html.HiddenFor(model => model.rutaImagen)
+
+
+                    <div class="m-3 row">
+
+                        @Html.TextBoxFor(model => model.descripcion,
+                       new { @class = "form-control", @placeholder = "Descripción", @autofucus = "autofucus" })
+
+                    </div>
+
+                    <div class="m-3 row">
+
+                        @Html.TextBoxFor(model => model.problema,
+                       new { @class = "form-control", @placeholder = "Problema" })
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="col">
+
+                    <div class="m-3 row">
+
+                        <label>Cliente: </label>
+                        @Html.DropDownList("clienteId", null, "SELECCIONAR CLIENTE", htmlAttributes:
+                       new { @class = "form-control" })
+
+
+                    </div>
+
+                    <div class="m-3 row">
+
+                        @if (Model == null)
+                        {
+
+                            <button class="btn btn-outline-primary" onclick="GuardarEquipo()">Guardar</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                        }
+                        else
+                        {
+                            <button class="btn btn-outline-primary" onclick="EditarEquipo()">Editar</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                        }
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

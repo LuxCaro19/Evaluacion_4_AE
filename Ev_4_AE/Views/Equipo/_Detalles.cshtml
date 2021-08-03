@@ -1,0 +1,26 @@
+﻿@model Ev_4_AE.Models.Equipo
+
+<div class="modal-dialog modal-sm">
+
+    <div class="modal-content">
+
+        <div class="card">
+
+            <img class="card-img-top" src="@Model.rutaImagen" alt="Sin Imagen"/>
+            <h5 class="card-title">Descripcion</h5>
+            <p class="card-text">
+
+                <b>Cliente: </b> @Model.Cliente.nombre @Model.Cliente.apellidos<br />
+                <b>Fecha recepción: </b> @Model.fechaRecepcion.ToShortDateString()<br />
+                <b>Descripción: </b> @Model.descripcion<br />
+                <b>Problema: </b> @Model.problema<br />
+
+            </p>
+
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+    </div>
+
+
+</div>

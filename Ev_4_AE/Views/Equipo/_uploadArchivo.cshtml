@@ -1,0 +1,30 @@
+﻿@model Ev_4_AE.Models.Equipo
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <form enctype="multipart/form-data">
+            <div class="modal-header">
+                <h5 class="modal-title">Subir Imagen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3 row">
+
+                    <div class="col-sm-10">
+
+                        <input type="file" id="idArchivo" name="idArchivo" />
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="uploadArchivo()">Subir Imagen</button>
+            </div>
+        </form>
+    </div>
+</div>
