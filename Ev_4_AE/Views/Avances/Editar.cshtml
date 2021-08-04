@@ -1,6 +1,6 @@
-﻿@model Ev_4_AE.Models.OrdenTrabajo
+﻿@model Ev_4_AE.Models.AvanceOrdenTrabajo
 @{
-    ViewBag.Title = "Agregar una nueva orden de trabajo";
+    ViewBag.Title = "Editar info de avance";
     Layout = "~/Views/Shared/_Interna.cshtml";
 }
 
@@ -11,7 +11,7 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Completar con la información</h5>
-        @using (Html.BeginForm("Agregar", "Avances", FormMethod.Post))
+        @using (Html.BeginForm("Editar", "Avances", FormMethod.Post))
         {
             @Html.Partial("_formularios", Model)
         }

@@ -1,26 +1,24 @@
-﻿@model Ev_4_AE.Models.OrdenTrabajo
+﻿@model Ev_4_AE.Models.AvanceOrdenTrabajo
 @{
-    ViewBag.Title = "Eliminar Orden de trabajo";
+    ViewBag.Title = "Eliminar Avance de orden de trabajo";
     Layout = "~/Views/Shared/_Interna.cshtml";
 }
-
 <br />
 <div class="alert alert-warning d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
     <div>
-        <p>Ten en cuenta que solo puedes eliminar ordenes de trabajos si no existen avances asociados</p>
-        ¿Realmente desea eliminar esta orden de trabajo?
+        <p>Esta accion eliminara el avance que has seleccionado</p>
+        ¿Realmente desea eliminarlo?
     </div>
 </div>
 <div class="container-fluid">
-    @using (Html.BeginForm("Eliminar", "OrdenTrabajo", FormMethod.Post))
+    @using (Html.BeginForm("Eliminar", "Avances", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.id)
         <button class="btn btn-danger">Eliminar</button>
-        <a href="@Url.Action("Listar","OrdenTrabajo")" class="btn btn-outline-success">Atras</a>
+        <a href="@Url.Action("Listar","Avances", new {id=Model.ordenTrabajoId})" class="btn btn-outline-success">Atras</a>
     }
 </div>
-
 
 

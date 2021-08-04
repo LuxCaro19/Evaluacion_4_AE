@@ -5,44 +5,31 @@
 <div class="row">
     <div class="col">
         <div class="mb-3 row">
-            <label for="nombre" class="col-sm-2 col-form-label">Tipo</label>
+            <label for="tipo" class="col-sm-2 col-form-label">Tipo</label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(model => model.tipo, new { @class = "form-control", placeholder = "Tipo", autofocus = "autofocus" })
                 @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="nombre" class="col-sm-2 col-form-label">Descripción</label>
+            <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
             <div class="col-sm-10">
                 @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control", placeholder = "Descripción"})
                 @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="nombre" class="col-sm-2 col-form-label">Fecha</label>
+            <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
             <div class="col-sm-10">
-                @if (Model == null)
-                {
-
-                    @Html.TextBoxFor(model => model.fecha, new { @class = "form-control", @type = "date", placeholder = "DD/MM/AAAA" })
-                    @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
-
-                }
-                else
-                {
-
-                    @Html.TextBoxFor(model => model.fecha, new { @class = "form-control", @type = "date", placeholder = "DD/MM/AAAA", @value = Model.fecha.ToString("yyyy-MM-dd") })
-                    @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
-
-                }
+                @Html.TextBoxFor(model => model.fecha, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
 
 
             </div>
             <div class="m-3 row">
 
-                <label for="nombre" class="col-sm-2 col-form-label">Equipo </label>
-                @Html.DropDownList("EquipoId", null, "SELECCIONAR EQUIPO", htmlAttributes:
-                new { @class = "form-control" })
+                <label for="equipoId" class="col-sm-2 col-form-label">Equipo </label>
+                @Html.DropDownList("equipoId", null, "SELECCIONAR EQUIPO", htmlAttributes:new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.equipoId, "", new { @class = "text-danger" })
 
 
