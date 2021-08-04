@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Ev_4_AE.Models.AvanceOrdenTrabajo>
+@{
+    ViewBag.Title = "Lista De Avances Orden N°"+ Session["OrdenTrabajoId"];
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        Avances registrados
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Lista de avances</h5>
+        <a href="@Url.Action("Agregar","Avances")" class="btn btn-primary">Registrar avance</a>
+        <a href="@Url.Action("Listar","OrdenTrabajo")" class="btn btn-outline-success">Volver</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var avan in Model)
+                {
+                <tr>
+                    <td>@avan.id</td>
+                    <td>@avan.fecha</td>
+                    <td>@avan.descripcion</td>
+                    <td>
+                        <a href="@Url.Action("Editar","Avances", new {id=avan.id})" class="btn btn-outline-success">editar</a>
+                        <a href="@Url.Action("Eliminar","Avances", new {id=avan.id})" class="btn btn-outline-danger">eliminar</a>
+                    </td>
+                </tr>
+                }        
+            </tbody>
+        </table>
+    </div>
+</div>
+
