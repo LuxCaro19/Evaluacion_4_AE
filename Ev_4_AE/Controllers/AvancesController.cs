@@ -30,16 +30,18 @@ namespace Ev_4_AE.Controllers
            
 
                 var ava_delete = db.AvanceOrdenTrabajo.Find(ava.id);
-                var otid = ava.ordenTrabajoId; 
+                var otid = ava.ordenTrabajoId;
+                int xd = ava_delete.ordenTrabajoId;
                 db.AvanceOrdenTrabajo.Remove(ava_delete);
-
+                
                 int num = db.SaveChanges();
+            
 
                 if (num > 0)
                 {
                     TempData["mensaje"] = "Avance eliminado";
-                    return RedirectToAction("Listar", "Avances", new { id = otid });
-                }
+                    return RedirectToAction("Listar", "Avances", new { id = xd });
+            }
                 else
                 {
                 TempData["mensaje"] = "No se ha podido eliminar el avance";

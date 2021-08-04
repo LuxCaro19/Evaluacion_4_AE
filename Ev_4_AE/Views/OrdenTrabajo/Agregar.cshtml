@@ -11,7 +11,7 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Completar con la información</h5>
-        @using (Html.BeginForm("Agregar", "Avances", FormMethod.Post))
+        @using (Html.BeginForm("Agregar", "OrdenTrabajo", FormMethod.Post))
         {
             @Html.Partial("_formularios", Model)
         }
