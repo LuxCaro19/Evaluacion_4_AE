@@ -1,0 +1,77 @@
+﻿@model Ev_4_AE.Models.OrdenTrabajo
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="row">
+    <div class="col">
+        <div class="mb-3 row">
+            <label for="nombre" class="col-sm-2 col-form-label">Tipo</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.tipo, new { @class = "form-control", placeholder = "Tipo", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="nombre" class="col-sm-2 col-form-label">Descripción</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control", placeholder = "Descripción"})
+                @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="nombre" class="col-sm-2 col-form-label">Fecha</label>
+            <div class="col-sm-10">
+                @if (Model == null)
+                {
+
+                    @Html.TextBoxFor(model => model.fecha, new { @class = "form-control", @type = "date", placeholder = "DD/MM/AAAA" })
+                    @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+
+                }
+                else
+                {
+
+                    @Html.TextBoxFor(model => model.fecha, new { @class = "form-control", @type = "date", placeholder = "DD/MM/AAAA", @value = Model.fecha.ToString("yyyy-MM-dd") })
+                    @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+
+                }
+
+
+            </div>
+            <div class="m-3 row">
+
+                <label for="nombre" class="col-sm-2 col-form-label">Equipo </label>
+                @Html.DropDownList("EquipoId", null, "SELECCIONAR EQUIPO", htmlAttributes:
+                new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.equipoId, "", new { @class = "text-danger" })
+
+
+            </div>
+
+            <div class="m-3 row">
+
+                <label for="nombre" class="col-sm-2 col-form-label">Estado </label>
+
+                @if (Model == null)
+                {
+                    @Html.CheckBox("estado", false);
+                }
+                else
+                {
+                    @Html.CheckBox("estado", Model.estado);
+                }
+
+
+
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <button class="btn btn-primary">Guardar</button>
+            <a href="@Url.Action("Listar","OrdenTrabajo")" class="btn btn-outline-success">Atras</a>
+        </div>
+    </div>
+
+</div>
+
+

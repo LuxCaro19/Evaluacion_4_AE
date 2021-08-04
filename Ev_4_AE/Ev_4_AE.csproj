@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdenTrabajoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +259,10 @@
     <Content Include="Views\Equipo\_Eliminar.cshtml" />
     <Content Include="Views\Equipo\_formularios.cshtml" />
     <Content Include="Views\Equipo\_uploadArchivo.cshtml" />
+    <Content Include="Views\OrdenTrabajo\Listar.cshtml" />
+    <Content Include="Views\OrdenTrabajo\_formularios.cshtml" />
+    <Content Include="Views\OrdenTrabajo\Agregar.cshtml" />
+    <Content Include="Views\OrdenTrabajo\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

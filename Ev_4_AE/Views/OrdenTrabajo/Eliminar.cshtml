@@ -1,0 +1,25 @@
+﻿@model Ev_4_AE.Models.OrdenTrabajo
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+
+<br />
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+    <div>
+        ¿Realmente desea eliminar?
+    </div>
+</div>
+<div class="container-fluid">
+    @using (Html.BeginForm("Eliminar", "OrdenTrabajo", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id)
+        <button class="btn btn-danger">Eliminar</button>
+        <a href="@Url.Action("Listar","OrdenTrabajo")" class="btn btn-outline-success">Atras</a>
+    }
+</div>
+
+
+

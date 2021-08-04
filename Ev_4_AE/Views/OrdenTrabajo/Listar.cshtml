@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Ev_4_AE.Models.OrdenTrabajo>
+@{
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+        <div>
+            <b>@TempData["mensaje"]</b>
+        </div>
+    </div>
+}
+
+<br />
+<div class="card">
+
+    <div class="card-header">
+        <h4 class="text-center">Orden de trabajo</h4>
+    </div>
+    <div class="card-body">
+
+        <br />
+        <br />
+        <a href="@Url.Action("Agregar","OrdenTrabajo")" class="btn btn-primary btn-sm center">Nueva Asignacion</a>
+        <br />
+        <br />
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Problema</th>
+                    <th scope="col">Equipo</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var o in Model)
+                {
+                    <tr>
+                        <th scope="row">@o.id</th>
+                        <td>@o.tipo</td>
+                        <td>@o.descripcion</td>
+                        <td>@o.Equipo.problema</td>
+                        <td>@o.Equipo.descripcion</td>
+                        <td>@o.fecha.ToShortDateString()</td>
+                        <td>
+
+                            @if (@o.estado == true)
+                            {
+                                <span class="text-success"><b>Finalizada</b></span>
+                            }
+                            else
+                            {
+                                <span class="text-warning"><b>Pendiente</b></span>
+                            }
+
+                        </td>
+                        <td>
+
+                            <a href="@Url.Action("Eliminar","OrdenTrabajo", new { id=o.id})" class="btn btn-danger btn-sm">Eliminar</a>
+
+                            <a href="@Url.Action("Editar","OrdenTrabajo")" class="btn btn-outline-dark btn-sm">Editar</a>
+                            <a href="#" class="btn btn-info btn-sm">Ver Avances</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
